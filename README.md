@@ -1,2 +1,2 @@
-# it-2004
-IT 2004 - Parallel Programming 
+# IT 2004 - Parallel Programming 
+GitHub Repository for Assignment Submissions for Parallel Programming.
