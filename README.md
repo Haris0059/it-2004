@@ -14,3 +14,6 @@ Google Spreadsheet:
 - Created the Google Spreadsheet and inserted data into it
 - Created a graph from inserted data
 - Link of Spreadsheet https://docs.google.com/spreadsheets/d/13mmJtThMf-jPn_IcExd7ARElYqzw_r2nYSZE_AgtnZ0/edit?usp=sharing
+
+### Data graph
+<img width="904" height="561" alt="image" src="https://github.com/user-attachments/assets/f9d0dafe-f155-46ec-b449-7a111f3147fb" />
