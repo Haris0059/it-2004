@@ -83,7 +83,6 @@ int main(int argc, char *argv[])
 
       printf("Expected accurate sum: %-17.16lg\n\n", accurate_sum);
 
-      test("Standard Double Sum", do_sum, energy, ncells, accurate_sum);
       test("Long Double Sum", do_ldsum, energy, ncells, accurate_sum);
       test("Pairwise Sum", do_pair_sum, energy, ncells, accurate_sum);
       test("Kahn Sum", do_kahn_sum, energy, ncells, accurate_sum);
