@@ -16,3 +16,9 @@ Image:
 
 Output is generated in output.txt
 Datasheet Link: https://docs.google.com/spreadsheets/d/14xHdWOUENASgu0pJXP3XlSJQYpYoq3IWyOT4fn0_YZA/edit?usp=sharing
+
+### What does Data show:
+
+
+### How the Global sum problem affects parallelization:
+The global sum problem significantly affects parallelization because of an inherent limitation of finite-precision arithmetic: non-associativity
