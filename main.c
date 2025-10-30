@@ -32,7 +32,7 @@ void test(const char* name, double (*sum_func)(double*, long), double* energy, l
    double cpu_time;
 
    cpu_timer_start(&cpu_timer);
-   test_sum = do_sum(energy, ncells);
+   test_sum = sum_func(energy, ncells);
    cpu_time = cpu_timer_stop(cpu_timer);
 
    printf("  accurate sum %-17.16lg sum %-17.16lg diff %10.4lg relative diff %10.4lg runtime %lf",
