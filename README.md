@@ -18,7 +18,7 @@ Output is generated in output.txt
 Datasheet Link: https://docs.google.com/spreadsheets/d/14xHdWOUENASgu0pJXP3XlSJQYpYoq3IWyOT4fn0_YZA/edit?usp=sharing
 
 ### What does Data show:
-Data shows that the Long Double Algorithm is the only one which makes mistakes. This is because the algorithm sums numbers in sequence and it doesn't have any error correction.
+Data shows that the Long Double Algorithm is the only one which makes mistakes. This is because the algorithm sums numbers in sequence and it doesn't have any error correction, while Kahn and Knuth Sum have error correction implemented. Pairwise algorithm avoids the program fully with dividing problem into smaller parts and summing up them.
 
 ### How the Global sum problem affects parallelization:
 The global sum problem significantly affects parallelization because of an inherent limitation of finite-precision arithmetic: non-associativity
