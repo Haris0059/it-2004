@@ -1,11 +1,14 @@
 # IT 2004 - Parallel Programming 
 GitHub Repository for Assignment Submissions for Parallel Programming.
 
-## Assignment 3 
-- Implemented timestep.c, and timestep_otp from 1 to 3
-'''
-## Assignment 5
+## Assignment 5 
+- Implemented timestep.c, and timestep_opt from 1 to 3
+- Im plemented flags in Makefile such as: -fno-trapping-math and -fno-math-errno
+- Couldn't run a likwid-perfctr due to Unsupported Processor shown on photo below
+- Documented all of the timestep_opt results/outputs from 1 to 3 in <a href="timestep_opt_output.txt">this file</a>
 
+
+### Output after running make on timestep.c
 ```bash
 gcc -g -O3 -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o main.o main.c
 main.c:10:22: optimized: loop vectorized using 32 byte vectors
@@ -20,3 +23,6 @@ timer.c:9:5: missed: statement clobbers memory: clock_gettime (1, tstart_cpu_2(D
 timer.c:14:5: missed: statement clobbers memory: clock_gettime (1, &tstop_cpu);
 gcc -g -O3 -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed -o stream_triad main.o timestep.o timer.o -lm
 ```
+
+### Output after runnig likwid-perfctr
+![alt text](image.png)
