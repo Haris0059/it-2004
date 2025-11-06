@@ -43,7 +43,7 @@ gcc -g -O3 -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune
 - Loop not vectorized on timer.c:5,10 due clobbers memory with function clock_gettime
 
 #### What vector length instructions were used and which are the best?
-Vector length used for all iterations is 32 bytes or 256 bits, and that is the best match, because my processor maximum SIMD width is 256-bit or AVX (Flag which can be found with lscpu command, this flag shows the maximum SIMD width for processor)
+Vector length used for all iterations is 32 bytes or 256 bits, and that is the best match, because my processor maximum SIMD width is 256-bit or AVX2 (Flag which can be found with lscpu command, this flag shows the maximum SIMD width for processor)
 
 Photo of lscpu command and where we can find the flag
 
