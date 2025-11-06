@@ -46,4 +46,5 @@ gcc -g -O3 -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune
 Vector length used for all iterations is 32 bytes or 256 bits, and that is the best match, because my processor maximum SIMD width is 256-bit or AVX (Flag which can be found with lscpu command, this flag shows the maximum SIMD width for processor)
 
 Photo of lscpu command and where we can find the flag
+
 ![alt text](image-1.png)
