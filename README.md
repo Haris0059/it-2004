@@ -26,3 +26,11 @@ gcc -g -O3 -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune
 
 ### Output after runnig likwid-perfctr
 ![alt text](image.png)
+
+### Questions & Answers
+
+#### Iteration 1 (timestep_opt1.c)
+- Loops vectorized using 32 byte vectors on main.c:10, timestep_opt1.c:9, timestep_opt1.c:11
+- Loops not vectorized on main.c:20 due to clobbers memomory (wrote memory locations in unpredictable way)
+#### Iteration 2 (timestep_opt2.c)
+#### Iteration 3 (timestep_opt3.c)
