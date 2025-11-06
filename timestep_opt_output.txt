@@ -1,0 +1,41 @@
+timestep_opt1.c
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o main.o main.c
+main.c:10:22: optimized: loop vectorized using 32 byte vectors
+main.c:20:15: missed: statement clobbers memory: mymindt_6 = timestep (10000000, 9.800000000000000710542735760100185871124267578125e+0, 9.499999999999999555910790149937383830547332763671875e-1, &celltype, &H, &U, &V, &dx, &dy);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "Minimum dt is %lf\n", mymindt_6);
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o timestep_opt1.o timestep_opt1.c
+timestep_opt1.c:9:9: optimized: loop vectorized using 32 byte vectors
+timestep_opt1.c:11:7: optimized: loop vectorized using 32 byte vectors
+timestep_opt1.c:9:9: optimized: loop vectorized using 32 byte vectors
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o timer.o timer.c
+timer.c:5:5: missed: statement clobbers memory: clock_gettime (1, tstart_cpu_2(D));
+timer.c:10:5: missed: statement clobbers memory: clock_gettime (1, &tstop_cpu);
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed -o stream_triad main.o timestep_opt1.o timer.o -lm
+
+timestep_opt2.c
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o main.o main.c
+main.c:10:22: optimized: loop vectorized using 32 byte vectors
+main.c:20:15: missed: statement clobbers memory: mymindt_6 = timestep (10000000, 9.800000000000000710542735760100185871124267578125e+0, 9.499999999999999555910790149937383830547332763671875e-1, &celltype, &H, &U, &V, &dx, &dy);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "Minimum dt is %lf\n", mymindt_6);
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o timestep_opt2.o timestep_opt2.c
+timestep_opt2.c:9:9: optimized: loop vectorized using 32 byte vectors
+timestep_opt2.c:11:7: optimized: loop vectorized using 32 byte vectors
+timestep_opt2.c:9:9: optimized: loop vectorized using 32 byte vectors
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o timer.o timer.c
+timer.c:5:5: missed: statement clobbers memory: clock_gettime (1, tstart_cpu_2(D));
+timer.c:10:5: missed: statement clobbers memory: clock_gettime (1, &tstop_cpu);
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed -o stream_triad main.o timestep_opt2.o timer.o -lm
+
+timestep_opt3.c 
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o main.o main.c
+main.c:10:22: optimized: loop vectorized using 32 byte vectors
+main.c:20:15: missed: statement clobbers memory: mymindt_6 = timestep (10000000, 9.800000000000000710542735760100185871124267578125e+0, 9.499999999999999555910790149937383830547332763671875e-1, &celltype, &H, &U, &V, &dx, &dy);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "Minimum dt is %lf\n", mymindt_6);
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o timestep_opt3.o timestep_opt3.c
+timestep_opt3.c:8:9: optimized: loop vectorized using 32 byte vectors
+timestep_opt3.c:10:7: optimized: loop vectorized using 32 byte vectors
+timestep_opt3.c:8:9: optimized: loop vectorized using 32 byte vectors
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed   -c -o timer.o timer.c
+timer.c:5:5: missed: statement clobbers memory: clock_gettime (1, tstart_cpu_2(D));
+timer.c:10:5: missed: statement clobbers memory: clock_gettime (1, &tstop_cpu);
+gcc -g -O3 -fno-trapping-math -fno-math-errno -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune=native -mprefer-vector-width=256 -fopt-info-vec-optimized -fopt-info-vec-missed -o stream_triad main.o timestep_opt3.o timer.o -lm
