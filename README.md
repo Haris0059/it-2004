@@ -30,7 +30,17 @@ gcc -g -O3 -fstrict-aliasing -ftree-vectorize -fopenmp-simd -march=native -mtune
 ### Questions & Answers
 
 #### Iteration 1 (timestep_opt1.c)
-- Loops vectorized using 32 byte vectors on main.c:10, timestep_opt1.c:9, timestep_opt1.c:11
-- Loops not vectorized on main.c:20 due to clobbers memomory (wrote memory locations in unpredictable way)
+- Loops vectorized on main.c:10, timestep_opt1.c:9, timestep_opt1.c:11
+- Loop not vectorized on main.c:20 due to clobbers memomory (wrote memory locations in unpredictable way)
+- Loop not vectorized on timer.c:5,10 due clobbers memory with function clock_gettime
 #### Iteration 2 (timestep_opt2.c)
+- Loops vectorized on main.c:10, timestep_opt2.c:9, timestep_opt2.c:11
+- Loop not vectorized on main.c:20 due to clobbers memomory (wrote memory locations in unpredictable way)
+- Loop not vectorized on timer.c:5,10 due clobbers memory with function clock_gettime
 #### Iteration 3 (timestep_opt3.c)
+- Loops vectorized on main.c:10, timestep_opt3.c:8, timestep_opt3.c:10
+- Loop not vectorized on main.c:20 due to clobbers memomory (wrote memory locations in unpredictable way)
+- Loop not vectorized on timer.c:5,10 due clobbers memory with function clock_gettime
+
+##### What is the best vector length?
+Vector length used for all iterations is 32 bytes or 256 bits, and that is the best match, because my processor maximum SIMD width is 256-bit or AVX (Flag which can be found with lscpu command, this flag shows the maximum SIMD width for processor)
