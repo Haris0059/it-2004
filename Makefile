@@ -3,7 +3,7 @@ CFLAGS = -fopenmp -Wall -std=c11 -march=native -O2
 LDFLAGS = -lm
 
 # Stencil source files (main programs)
-SOURCES = stencil_opt2.c
+SOURCES = stencil_opt2.c stencil_opt4.c stencil_opt6.c
 
 
 # Generate executable names
@@ -37,6 +37,13 @@ run-opt2: stencil_opt2
 	@echo "Running stencil_opt2..."
 	./stencil_opt2
 
+run-opt4: stencil_opt4
+	@echo "Running stencil_opt4..."
+	./stencil_opt4
+
+run-opt6: stencil_opt6
+	@echo "Running stencil_opt6..."
+	./stencil_opt6
 
 # Clean up
 clean:
@@ -46,4 +53,4 @@ clean:
 # Clean and rebuild
 rebuild: clean all
 
-.PHONY: all clean rebuild run-opt2 run-opt3
+.PHONY: all clean rebuild run-opt2 run-opt4 run-opt6
