@@ -69,3 +69,4 @@ The biggest difference or improvement happened from version 2 to version 4. In v
 
 
 #### What is the difference between explicit and implicit barriers inside the code and did they exist inside any of these examples? What do they actually mean? 
+Implicit barriers are automatic synchronization points that the compiler adds at the end of loops like #pragma omp for (used in versions 2 and 4), while explicit barriers are manual synchronization points like #pragma omp barrier, which we must manually add to force all threads to wait (used in version 6).
