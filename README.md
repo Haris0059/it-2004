@@ -65,5 +65,7 @@ Timing is init 0.002887 flush 15.079435 stencil 22.899100 total 40.006198
 My CPU used 20 threads to execute the code.
 
 #### What are the parts of the code that were improved? What strategies were used to improve the code? 
+The biggest difference or improvement happened from version 2 to version 4. In version 4, the overhead problem of fork-join was fixed. That happened because in version 2, it was constantly creating and destroying forks, which made everything slower. The improvement that happened from version 4 to version 6 is that we removed the small scheduling overhead from the #pragma omp for directive and parallelized the initial data setup.
+
 
 #### What is the difference between explicit and implicit barriers inside the code and did they exist inside any of these examples? What do they actually mean? 
