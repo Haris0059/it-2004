@@ -40,3 +40,8 @@ GitHub Repository for Assignment Submissions for Parallel Programming.
 ```bash
 MPI_Reduce(&local_sum, &total_sum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 ```
+
+### Quesions & Answers
+
+#### Explain why only rank 0 needs to deallocate the resources?
+Rank 0 needs to deallocate resources because it was the only process that executed malloc to allocate the large global array, following the rule that each process must only free the memory it specifically allocated
