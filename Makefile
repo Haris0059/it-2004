@@ -8,7 +8,7 @@ PartialSum: PartialSum.o timer.o
 	mpicc $^ -o PartialSum
 
 run:
-	mpirun -n 4 ./PartialSum
+	mpirun -n 8 ./PartialSum
 
 clean:
 	rm -f PartialSum PartialSum.o timer.o
