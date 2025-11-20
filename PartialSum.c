@@ -24,6 +24,9 @@ int main(int argc, char *argv[])
     // Calculate the starting and ending index for each process
     // You can use the book chapter for this week to help you calculate bounds properly
     // Your code here..
+    long ibegin = ncells * (rank) / nprocs;
+    long iend = ncells * (rank + 1) / nprocs;
+    int nsize = (int) (iend - ibegin);
 
     // Main process creates and initializes the global array
     double *a_global = NULL;
@@ -42,7 +45,7 @@ int main(int argc, char *argv[])
 
     // You need to use one of the collective communication calls to provide nsize from all processes to
     // each process and store it in "nsizes" array declared above. Look at MPI_Allgather!
-
+    MPI_Allgather(&nsize, 1, MPI_INT, nsizes, 1, MPI_INT, comm); 
 
     offsets[0] = 0;
     for (int i = 1; i < nprocs; i++) {
@@ -51,6 +54,7 @@ int main(int argc, char *argv[])
 
     // Allocate local array on each process
     // Your code here..
+    double *a_local = (double *)malloc(nsize * sizeof(double));
 
     cpu_timer_start(&tstart_time);
 
@@ -78,6 +82,7 @@ int main(int argc, char *argv[])
 
     // Use reduce collective communication call to get the total sum of all local sums
     // Your code here..
+    MPI_Reduce(&local_sum, &total_sum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
     double reduce_time = cpu_timer_stop(tstart_time);
 
