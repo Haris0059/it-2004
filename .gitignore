@@ -1,0 +1,19 @@
+# Ignore generated dataset
+temperature_data.csv
+
+# Ignore all output result files
+output_serial.dat
+Example_01/output_serial.dat
+
+output_independent.dat
+Example_02/output_independent.dat
+
+output_collective.dat
+Example_03/output_collective.dat
+
+output_with_halos.dat
+Example_04/output_with_halos.dat
+
+# General ignore patterns for future builds
+*.dat
+*.csv
